@@ -1,8 +1,8 @@
 {
-    "name": "extra_tiers",
-    "version": "0.0.1",
-    "title": "An industry changing mod to revolutionize the way we play Factorio",
-    "author": "1e99, Reave",
-    "factorio_version": "1.1",
-    "dependencies": []
-  }
+  "name": "extratiers",
+  "version": "0.0.1",
+  "title": "An industry changing mod to revolutionize the way we play Factorio",
+  "author": "1e99, Reave",
+  "factorio_version": "1.1",
+  "dependencies": []
+}
