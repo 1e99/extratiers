@@ -1,3 +1,4 @@
+
 data:extend({
   {
     type = "item",
@@ -6,6 +7,6 @@ data:extend({
     icon = "__extratiers__/icons/dino-nugget.png",
     icon_size = 300,
     subgroup = "raw-resource",
-    place_result = "assembling-machine-1",
+    place_result = "assembling-machine-4",
   },
 })
