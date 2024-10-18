@@ -5,15 +5,15 @@ data:extend({
     {
         type = "assembling-machine",
         name = "assembling-machine-4";
-        energy_usage = "10MJ",
+        energy_usage = "600kW",
         crafting_speed = 2,
         crafting_categories = {"crafting", "basic-crafting", "advanced-crafting"},
         energy_source =
-            {
+        {
             type = "electric",
             usage_priority = "secondary-input",
             emissions_per_minute = 4
-            },
+        },
         collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
         icon = "__base__/graphics/icons/assembling-machine-1.png",
@@ -25,24 +25,24 @@ data:extend({
                 layers =
                 {
                     {
-                    filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
-                    priority = "high",
-                    width = 108,
-                    height = 119,
-                    frame_count = 32,
-                    line_length = 8,
-                    shift = util.by_pixel(0, -0.5),
-                    hr_version =
-                    {
-                        filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3.png",
+                        filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
                         priority = "high",
-                        width = 214,
-                        height = 237,
+                        width = 108,
+                        height = 119,
                         frame_count = 32,
                         line_length = 8,
-                        shift = util.by_pixel(0, -0.75),
-                        scale = 0.5
-                    }
+                        shift = util.by_pixel(0, -0.5),
+                        hr_version =
+                        {
+                            filename = "__base__/graphics/entity/assembling-machine-3/hr-assembling-machine-3.png",
+                            priority = "high",
+                            width = 214,
+                            height = 237,
+                            frame_count = 32,
+                            line_length = 8,
+                            shift = util.by_pixel(0, -0.75),
+                            scale = 0.5
+                        }
                     },
                     {
                     filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-shadow.png",
@@ -67,7 +67,42 @@ data:extend({
                     }
                     }
                 }
-            }
+            },
+        working_sound =
+        {
+            sound =
+            {
+                {
+                    filename = "__base__/sound/assembling-machine-t3-1.ogg",
+                volume = 0.45
+                }
+            },
+            audible_distance_modifier = 0.5,
+            fade_in_ticks = 4,
+            fade_out_ticks = 20
+        },
+        fluid_boxes =
+        {
+            {
+                production_type = "input",
+                pipe_picture = assembler3pipepictures(),
+                pipe_covers = pipecoverspictures(),
+                base_area = 10,
+                base_level = -1,
+                pipe_connections = {{ type="input", position = {0, -2} }},
+                secondary_draw_orders = { north = -1 }
+            },
+            {
+                production_type = "output",
+                pipe_picture = assembler3pipepictures(),
+                pipe_covers = pipecoverspictures(),
+                base_area = 10,
+                base_level = 1,
+                pipe_connections = {{ type="output", position = {0, 2} }},
+                secondary_draw_orders = { north = -1 }
+            },
+            off_when_no_fluid_recipe = true
+        },
     },
     {
         type = "transport-belt",
@@ -80,51 +115,51 @@ data:extend({
         corpse = "express-transport-belt-remnants",
         dying_explosion = "express-transport-belt-explosion",
         resistances =
-        {
-        {
-            type = "fire",
-            percent = 50
-        }
-        },
+            {
+                {
+                    type = "fire",
+                    percent = 50
+                }
+            },
         collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
         selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
         working_sound =
-        {
-        sound =
-        {
-            filename = "__base__/sound/express-transport-belt.ogg",
-            volume = 0.3
-        },
-        persistent = true,
-        use_doppler_shift = false
-        },
+            {
+            sound =
+                {
+                    filename = "__base__/sound/express-transport-belt.ogg",
+                    volume = 0.3
+                },
+            persistent = true,
+            use_doppler_shift = false
+            },
         animation_speed_coefficient = 32,
         related_underground_belt = "express-underground-belt",
         fast_replaceable_group = "transport-belt",
 
         speed = 480/industrialBeltItemsPerSecond,
-        belt_animation_set ={
-        animation_set =
-        {
-            filename = "__base__/graphics/entity/transport-belt/transport-belt.png",
-            priority = "extra-high",
-            width = 64,
-            height = 64,
-            frame_count = 16,
-            direction_count = 20,
-            hr_version =
+        belt_animation_set =
             {
-            filename = "__base__/graphics/entity/transport-belt/hr-transport-belt.png",
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            scale = 0.5,
-            frame_count = 16,
-            direction_count = 20
-            }
-        },
-        
-        },
+                animation_set =
+                {
+                    filename = "__base__/graphics/entity/transport-belt/transport-belt.png",
+                    priority = "extra-high",
+                    width = 64,
+                    height = 64,
+                    frame_count = 16,
+                    direction_count = 20,
+                    hr_version =
+                        {
+                        filename = "__base__/graphics/entity/transport-belt/hr-transport-belt.png",
+                        priority = "extra-high",
+                        width = 128,
+                        height = 128,
+                        scale = 0.5,
+                        frame_count = 16,
+                        direction_count = 20
+                        }
+                },
+            },
         connector_frame_sprites = transport_belt_connector_frame_sprites,
-}
+    }
 })
